@@ -1,0 +1,144 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://art/HP_Bar.png" type="Texture" id=1]
+[ext_resource path="res://art/Menu_Background.png" type="Texture" id=2]
+[ext_resource path="res://art/Reload_Bar.png" type="Texture" id=3]
+[ext_resource path="res://Interface.gd" type="Script" id=4]
+
+[node name="Interface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu_Background" type="Sprite" parent="."]
+position = Vector2( 959.566, 1003.33 )
+texture = ExtResource( 2 )
+
+[node name="VBoxContainer_0" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = -130.0
+margin_right = 530.0
+margin_bottom = -106.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP_bar" type="TextureProgress" parent="VBoxContainer_0"]
+margin_right = 500.0
+margin_bottom = 10.0
+value = 100.0
+texture_progress = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reload_bar" type="TextureProgress" parent="VBoxContainer_0"]
+margin_top = 14.0
+margin_right = 500.0
+margin_bottom = 24.0
+value = 100.0
+texture_progress = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lives_Container" type="HBoxContainer" parent="VBoxContainer_0"]
+margin_top = 28.0
+margin_right = 500.0
+margin_bottom = 42.0
+
+[node name="lives_label" type="Label" parent="VBoxContainer_0/Lives_Container"]
+margin_right = 33.0
+margin_bottom = 14.0
+text = "Lives"
+
+[node name="lives_num" type="Label" parent="VBoxContainer_0/Lives_Container"]
+margin_left = 37.0
+margin_right = 45.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="Kills_Contianer" type="HBoxContainer" parent="VBoxContainer_0"]
+margin_top = 46.0
+margin_right = 500.0
+margin_bottom = 60.0
+
+[node name="lives_label" type="Label" parent="VBoxContainer_0/Kills_Contianer"]
+margin_right = 27.0
+margin_bottom = 14.0
+text = "Kills"
+
+[node name="lives_num" type="Label" parent="VBoxContainer_0/Kills_Contianer"]
+margin_left = 31.0
+margin_right = 39.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="VBoxContainer_1" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -530.0
+margin_top = -130.0
+margin_right = -30.0
+margin_bottom = -106.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP_bar" type="TextureProgress" parent="VBoxContainer_1"]
+margin_right = 500.0
+margin_bottom = 10.0
+value = 50.0
+texture_progress = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reload_bar" type="TextureProgress" parent="VBoxContainer_1"]
+margin_top = 14.0
+margin_right = 500.0
+margin_bottom = 24.0
+value = 100.0
+texture_progress = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lives_Container" type="HBoxContainer" parent="VBoxContainer_1"]
+margin_top = 28.0
+margin_right = 500.0
+margin_bottom = 42.0
+
+[node name="lives_label" type="Label" parent="VBoxContainer_1/Lives_Container"]
+margin_right = 33.0
+margin_bottom = 14.0
+text = "Lives"
+
+[node name="lives_num" type="Label" parent="VBoxContainer_1/Lives_Container"]
+margin_left = 37.0
+margin_right = 45.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="Kills_Container" type="HBoxContainer" parent="VBoxContainer_1"]
+margin_top = 46.0
+margin_right = 500.0
+margin_bottom = 60.0
+
+[node name="kills_label" type="Label" parent="VBoxContainer_1/Kills_Container"]
+margin_right = 27.0
+margin_bottom = 14.0
+text = "Kills"
+
+[node name="kills_num" type="Label" parent="VBoxContainer_1/Kills_Container"]
+margin_left = 31.0
+margin_right = 39.0
+margin_bottom = 14.0
+text = "0"
