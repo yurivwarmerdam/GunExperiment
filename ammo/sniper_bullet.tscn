@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/sniper_bullet.png" type="Texture" id=1]
+[ext_resource path="res://ammo/KinematicBullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ammo/sniper_bullet.gd" type="Script" id=3]
+
+[node name="KinematicBody2D" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )

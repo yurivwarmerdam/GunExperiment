@@ -17,14 +17,14 @@ export var up:String = "up_0"
 export var down:String = "down_0"
 export var jump:String = "jump_0"
 export var shoot:String = "shoot_0"
+export var select:String = "select_0"
 
 signal HP_update(value)
 signal lives_update(value)
 
 onready var anim_player = $AnimationPlayer
 onready var sprite = $Sprite
-onready var arm = $Arm
-onready var muzzle = $Arm/muzzle
+onready var arm = $arm
 
 const HALF_PI = PI/2
 
@@ -36,21 +36,30 @@ var spawn_point:Vector2
 var HP:int
 var lives:int
 
+var weapons = []
+var current_weapon_id = 0
+var current_weapon
+
 func _ready():
+	weapons = arm.get_children()
+	current_weapon = weapons[current_weapon_id]
 	spawn_point = position
 	set_HP(max_HP)
 	set_lives(max_lives)
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	if !is_dead:
 		handle_movement()
-		handle_aim(delta)
 
 # warning-ignore:unused_argument
 func _process(delta):
 	if !is_dead:
+		handle_aim(delta)
 		if Input.is_action_just_pressed(shoot):
-			fire_bullet()
+			current_weapon.fire_bullet()
+		if Input.is_action_just_pressed(select):
+			swap_weapon()
 
 func handle_movement():
 	var move_dir = 0
@@ -106,14 +115,6 @@ func play_animation(animation_name:String):
 		return
 	anim_player.play(animation_name)
 
-var bullet = preload("res://KinematicBullet.tscn")
-
-func fire_bullet() ->void:
-	var new_bullet = bullet.instance()
-	new_bullet.position = muzzle.get_global_position()
-	new_bullet.rotation = arm.rotation
-	get_tree().get_root().add_child(new_bullet)
-
 func take_damage(damage:int) ->void:
 	set_HP(HP-damage)
 	if HP <=0: die()
@@ -138,9 +139,8 @@ func die() ->void:
 		respawn_timer.connect("timeout", self,"_on_respawn_timer_timeout")
 		add_child(respawn_timer)
 		respawn_timer.start()
-		print("boobs")
 	else:
-		#do proper death handling....
+		#TODO: do proper game over handling....
 		$CollisionShape2D.disabled = true
 		$CollisionShape2D2.disabled = true
 		visible = false
@@ -148,7 +148,6 @@ func die() ->void:
 	pass
 
 func _on_respawn_timer_timeout():
-	print("farts")
 	respawn()
 	pass
 
@@ -160,3 +159,10 @@ func respawn():
 	visible = true
 	is_dead = false
 	pass
+
+func swap_weapon():
+	current_weapon_id = (current_weapon_id + 1) % weapons.size()
+	var new_weapon = weapons[current_weapon_id]
+	current_weapon.hide()
+	new_weapon.show()
+	current_weapon = new_weapon
