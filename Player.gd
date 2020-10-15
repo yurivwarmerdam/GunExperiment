@@ -21,6 +21,7 @@ export var select:String = "select_0"
 
 signal HP_update(value)
 signal lives_update(value)
+signal swap_weapon(timer)
 
 onready var anim_player = $AnimationPlayer
 onready var sprite = $Sprite
@@ -43,6 +44,7 @@ var current_weapon
 func _ready():
 	weapons = arm.get_children()
 	current_weapon = weapons[current_weapon_id]
+	emit_signal("swap_weapon", current_weapon.get_node("Timer"))
 	spawn_point = position
 	set_HP(max_HP)
 	set_lives(max_lives)
@@ -57,7 +59,9 @@ func _process(delta):
 	if !is_dead:
 		handle_aim(delta)
 		if Input.is_action_just_pressed(shoot):
-			current_weapon.fire_bullet()
+			current_weapon.single_fire()
+		if Input.is_action_pressed(shoot):
+			current_weapon.auto_fire()
 		if Input.is_action_just_pressed(select):
 			swap_weapon()
 
@@ -166,3 +170,4 @@ func swap_weapon():
 	current_weapon.hide()
 	new_weapon.show()
 	current_weapon = new_weapon
+	emit_signal("swap_weapon", current_weapon.get_node("Timer"))

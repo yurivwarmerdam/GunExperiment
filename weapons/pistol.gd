@@ -2,7 +2,7 @@ extends "res://weapons/prototype_weapon.gd"
 
 var bullet = preload("res://ammo/KinematicBullet.tscn")
 
-func fire_bullet() ->void:
+func single_fire() ->void:
 	var new_bullet = bullet.instance()
 	new_bullet.position = $muzzle.get_global_position()
 	new_bullet.global_rotation = global_rotation

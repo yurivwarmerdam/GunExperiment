@@ -1,8 +1,8 @@
 extends "res://weapons/prototype_weapon.gd"
 
-var bullet = preload("res://ammo/sniper_bullet.tscn")
+var bullet = preload("res://ammo/KinematicBullet.tscn")
 
-func single_fire() ->void:
+func auto_fire() ->void:
 	if timer.is_stopped():
 		var new_bullet = bullet.instance()
 		new_bullet.position = $muzzle.get_global_position()

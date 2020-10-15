@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://art/adventurer_tilesheet_tiny.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://weapons/prototype_weapon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://weapons/pistol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://weapons/sniper_rifle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://weapons/reloading_pistol.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 12.412
@@ -87,7 +88,10 @@ anims/Walk = SubResource( 5 )
 
 [node name="arm" type="Node2D" parent="."]
 
+[node name="reloading_pistol" parent="arm" instance=ExtResource( 6 )]
+
 [node name="prototype_weapon" parent="arm" instance=ExtResource( 3 )]
+visible = false
 
 [node name="pistol" parent="arm" instance=ExtResource( 4 )]
 visible = false

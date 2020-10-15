@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://weapons/prototype_weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://weapons/reloading_pistol.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/Pistol.png-8a083016a45b2eb71f44585f9226564e.stex"
+
+[node name="reloading_pistol" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Arm" parent="." index="0"]
+texture = SubResource( 1 )
+
+[node name="Timer" parent="." index="2"]
+wait_time = 0.1

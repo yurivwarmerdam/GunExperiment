@@ -1,4 +1,9 @@
 extends Node2D
 
-func fire_bullet() ->void:
-	print("Pew! Pew!")
+onready var timer:Timer= $Timer
+
+func single_fire() ->void:
+	pass
+
+func auto_fire() ->void:
+	pass
