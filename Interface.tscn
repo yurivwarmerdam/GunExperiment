@@ -14,16 +14,17 @@ __meta__ = {
 }
 
 [node name="Menu_Background" type="Sprite" parent="."]
-position = Vector2( 959.566, 1003.33 )
+position = Vector2( 960, 1040 )
+scale = Vector2( 1, 0.6 )
 texture = ExtResource( 2 )
 
 [node name="VBoxContainer_0" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 30.0
-margin_top = -130.0
+margin_top = -75.0
 margin_right = 530.0
-margin_bottom = -106.0
+margin_bottom = -15.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -85,9 +86,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -530.0
-margin_top = -130.0
+margin_top = -75.0
 margin_right = -30.0
-margin_bottom = -106.0
+margin_bottom = -15.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

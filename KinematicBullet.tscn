@@ -1,14 +1,56 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://art/bomb.png" type="Texture" id=1]
-[ext_resource path="res://KinematicBullet.gd" type="Script" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+var pellet_marker = preload(\"res://pellet_marker.tscn\")
+
+export var gravity: int = 400 #m/s^2
+export var damage:int = 10
+
+var velocity: Vector2 = Vector2(600,600)
+var VHoriz:float
+var VVert:float
+
+func _ready():
+	VHoriz = (Vector2.RIGHT.rotated(rotation) * velocity).x
+	VVert = (Vector2.RIGHT.rotated(rotation) * velocity).y
+	pass
+
+
+func _physics_process(delta):
+	#tracer()
+	var frame_displacement:Vector2 = Vector2(VHoriz,0) * delta
+	VVert+=gravity*delta
+	frame_displacement.y = VVert *delta
+	rotation=frame_displacement.angle()
+	
+	var collision = move_and_collide(frame_displacement)
+	if collision:
+		if collision.collider.is_in_group(\"world\"):
+			collision.collider.damage_tile(rotation, collision)
+			#var collided_tile = collision.collider.world_to_map(collision.position+(Vector2.RIGHT.rotated(rotation) * 0.1))
+			#collision.collider.set_cellv(collided_tile, -1)
+		queue_free()
+		if collision.collider.is_in_group(\"player\"):
+			collision.collider.take_damage(damage)
+	pass
+
+#debug function:
+func tracer():
+	var marker = pellet_marker.instance()
+	marker.position = position
+	get_tree().get_root().add_child(marker)
+"
+
+[sub_resource type="CircleShape2D" id=2]
 radius = 0.690638
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 scale = Vector2( 0.5, 0.5 )
-script = ExtResource( 2 )
+script = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -11.1181, -7.84266 )
@@ -17,4 +59,4 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4.5, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )

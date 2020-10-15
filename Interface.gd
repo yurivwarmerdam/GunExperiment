@@ -21,7 +21,6 @@ func _ready():
 	$VBoxContainer_0/Reload_bar.max_value = tst_timer.wait_time
 	$VBoxContainer_0/Reload_bar.value = tst_timer.time_left
 
-
 func _on_player_0_HP_update(value: int)->void: $VBoxContainer_0/HP_bar.value = value
 func _on_player_1_HP_update(value: int)->void: $VBoxContainer_1/HP_bar.value = value
 func _on_player_0_lives_update(value: int)->void: $VBoxContainer_0/Lives_Container/lives_num.text = str(value)
@@ -33,6 +32,7 @@ func _on_player_1_swap_weapon(timer)->void:
 	reload_timer_1 = timer
 	$VBoxContainer_1/Reload_bar.max_value = timer.wait_time *100
 
+# warning-ignore:unused_argument
 func _process(delta):
 	$VBoxContainer_0/Reload_bar.value = $VBoxContainer_0/Reload_bar.max_value - (reload_timer_0.time_left * 100)
 	$VBoxContainer_1/Reload_bar.value = $VBoxContainer_1/Reload_bar.max_value - (reload_timer_1.time_left * 100)

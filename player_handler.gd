@@ -14,8 +14,8 @@ signal player_1_lives(value)
 signal player_1_swap_weapon(timer)
 
 func _ready():
-	spawn_player(str(players.size()),Vector2(100,500))
-	spawn_player(str(players.size()),Vector2(1100,500))
+	spawn_player(str(players.size()),Vector2(128,64))
+	spawn_player(str(players.size()),Vector2(1760,64))
 
 # warning-ignore:unused_argument
 func _process(delta):
