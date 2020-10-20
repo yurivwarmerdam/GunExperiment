@@ -30,8 +30,6 @@ func handle_collision(collision):
 	if collision:
 		if collision.collider.is_in_group("world"):
 			collision.collider.damage_tile(rotation, collision)
-			#var collided_tile = collision.collider.world_to_map(collision.position+(Vector2.RIGHT.rotated(rotation) * 0.1))
-			#collision.collider.set_cellv(collided_tile, -1)
 		if collision.collider.is_in_group("player"):
 			collision.collider.take_damage(damage)
 		queue_free()

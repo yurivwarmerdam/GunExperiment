@@ -96,7 +96,7 @@ __meta__ = {
 [node name="HP_bar" type="TextureProgress" parent="VBoxContainer_1"]
 margin_right = 500.0
 margin_bottom = 10.0
-value = 50.0
+value = 100.0
 texture_progress = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
