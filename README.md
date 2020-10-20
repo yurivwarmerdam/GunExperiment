@@ -1,6 +1,6 @@
 # Gun Experiment
-This is my experiment with a worm shooter written in Godot.
-
+This is my experiment with a worm shooter written in Godot.  
+Youtube playlist for progress on this project & demos of new features: https://www.youtube.com/playlist?list=PLniVr9AtI64L5UiZUsVzznbEIPSr1-XOo  
 For now most assets are grabbed from www.kenney.nl (and some may well stay that way)
 
 Some sources I've used, or are planning on using:  
