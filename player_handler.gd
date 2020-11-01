@@ -2,7 +2,7 @@ extends Node
 
 export var initial_lives:int = 3
 
-var player_prototype = preload("res://Player.tscn")
+var player_prototype = preload("res://wizard_boii.tscn") #preload("res://Player.tscn")
 
 var players:Array = []
 
