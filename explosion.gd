@@ -9,14 +9,11 @@ onready var radius = 16
 func _ready():
 	animated_sprite.frame = 0
 	animated_sprite.connect("animation_finished",self,"_on_animation_finished")
-	
-	
 
 func _on_animation_finished():
 	destroy_circle()
 	queue_free()
 	pass
-
 
 func destroy_circle():
 	var top_left_tile:Vector2 = tilemap.world_to_map(Vector2(position.x - radius, position.y - radius))

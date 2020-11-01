@@ -9,9 +9,9 @@
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": false,
+"loop": true,
 "name": "New Anim",
-"speed": 30.0
+"speed": 15.0
 } ]
 
 [node name="explosion" type="Node2D"]
@@ -20,5 +20,5 @@ script = ExtResource( 5 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "New Anim"
-frame = 3
+frame = 2
 playing = true
