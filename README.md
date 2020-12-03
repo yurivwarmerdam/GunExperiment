@@ -13,4 +13,5 @@ https://www.youtube.com/watch?v=y1E_y9AIqow
 bitmask things:  
 http://higherorderfun.com/blog/2012/05/20/the-guide-to-implementing-2d-platformers/  
 https://codeforces.com/blog/entry/18169  
-https://godotforums.org/discussion/19607/liero-clone-how-to-do-destructive-environments-without-breaking-cpu
+https://godotforums.org/discussion/19607/liero-clone-how-to-do-destructive-environments-without-breaking-cpu  
+https://twitter.com/Case_Portman/status/1178342795033092097
